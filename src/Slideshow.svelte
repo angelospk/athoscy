@@ -31,12 +31,12 @@
   
     const interval = setInterval(() => {
       activeIndex = (activeIndex + 1) % slides.length;
-    }, 5000);
+    }, 3000);
   </script>
   
   <style>
     .slideshow {
-      position: relative;
+      /* position: relative; */
       overflow: hidden;
       width: 100%;
     }
