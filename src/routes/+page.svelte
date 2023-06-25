@@ -2,5 +2,6 @@
 	import Slideshow from "../Slideshow.svelte";
   </script>
   
-  <Slideshow />
+ <div class=""><Slideshow /></div> 
+  
   

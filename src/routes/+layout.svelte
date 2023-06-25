@@ -8,6 +8,11 @@
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
+	import { writable } from 'svelte/store';
+
+	export const globalVar = writable("initial value");
+
+
 	let valueSingle: string = 'gr';
 	import { register, init, getLocaleFromNavigator } from 'svelte-i18n';
 
@@ -31,8 +36,8 @@ init({
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<a href="/home">
-					<img src="src/lib/athos.png" alt="athos" />
+				<a href="/">
+					<img src="https://cdn.discordapp.com/attachments/814528759478747187/1122532599198404709/athos.png" alt="athos" />
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
@@ -72,7 +77,8 @@ init({
 		</AppBar>
 	</svelte:fragment>
 	<!-- Page Route Content -->
-	
+	<div class="container my-4 grid place-items-center pt-6 text-center content-center overflow-auto scrollbar-hide">
 
 	<slot />
+</div>
 </AppShell>
