@@ -8,10 +8,21 @@
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
-	import { writable } from 'svelte/store';
+	import {  onMount } from 'svelte';
+  	import Papa from 'papaparse';
+	let data = [];
+	import {csvDataStore} from '../csvdata';
+onMount(async () => {
+  const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?gid=113001344&single=true&output=csv';
 
-	export const globalVar = writable("initial value");
-
+  const response = await fetch(url);
+  const text = await response.text();
+  const parsedData:any = Papa.parse(text, { header: true }).data;
+ console.log(text) ;
+  console.log(parsedData);
+  data = parsedData;
+  csvDataStore.set(parsedData);
+});
 
 	let valueSingle: string = 'gr';
 	import { register, init, getLocaleFromNavigator } from 'svelte-i18n';
