@@ -12,16 +12,13 @@
   	import Papa from 'papaparse';
 	let data = [];
 	import {csvDataStore} from '../csvdata';
+	import {fetchXLSXdata} from '../getdata'
 onMount(async () => {
-  const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?gid=113001344&single=true&output=csv';
-
-  const response = await fetch(url);
-  const text = await response.text();
-  const parsedData:any = Papa.parse(text, { header: true }).data;
- console.log(text) ;
-  console.log(parsedData);
-  data = parsedData;
-  csvDataStore.set(parsedData);
+//   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?gid=113001344&single=true&output=csv';
+  const url="https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?output=xlsx"
+  let data:any = await fetchXLSXdata(url);
+  csvDataStore.set(data);
+  console.log(data);
 });
 
 	let valueSingle: string = 'gr';
