@@ -24,10 +24,15 @@ console.log(d);
 
 
 </script>
-
+<a
+					class="btn btn-sm variant-filled my-2"
+					href="/ekthesi"
+					rel="noreferrer"
+				>
+					Επιστροφή
+				</a>
 {#if d && d.length > 0}
     {#each d as item}
-        <p>{JSON.stringify(item)}</p>
         <img src={item.url.replace("cdn","media").replace("com","net").replace("jpg","jpg?width=300&height=150")} alt={item.name}/>
     {/each}
 {:else}

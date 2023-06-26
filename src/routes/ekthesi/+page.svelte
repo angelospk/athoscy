@@ -1,6 +1,7 @@
 <script lang="ts">
     // import { getContext } from 'svelte';
     import {csvDataStore} from '../../csvdata'
+    import { ProgressRadial } from '@skeletonlabs/skeleton';
     
   // const t:any = getContext('csvData');
   // console.log(t);
@@ -13,7 +14,7 @@
 <!-- <p>{data.url}</p> -->
 {/each}
 {:else}
-<p>loading...</p>
+<ProgressRadial font={12} class="bg-primary-hover-token content-center"  />
 {/if}
 
 

@@ -1,7 +1,9 @@
 <script>
-import {csvDataStore} from '../../csvdata';
+	import { get } from 'svelte/store';
+import {csvDataStore, tabPage} from '../../csvdata';
 const t=$csvDataStore
 </script>
-<p>{JSON.stringify(t)}</p>
+{get(tabPage)}
 videos...
+
 
