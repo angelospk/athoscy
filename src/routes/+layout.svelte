@@ -86,8 +86,20 @@
 	</svelte:fragment>
 	<!-- Page Route Content -->
 	<div
-		class="container mx-auto my-4 grid place-items-center pt-6 text-center content-center overflow-auto scrollbar-hide"
+		class="container mx-auto my-4 place-items-center pt-6 text-center content-center overflow-auto scrollbar-hide"
 	>
 		<slot />
 	</div>
+	<svelte:fragment slot="pageFooter">
+		<footer class="border-t border-opacity-15 py-4 px-6 bg-surface text-white uppercase text-md font-semibold tracking-wider">
+			<div class="flex flex-col md:flex-row justify-between">
+			  <div class="mb-2 md:mb-0">
+				<a href="/" class="hover:text-gray-300">ΑΘΩ λτδ</a> – Βυζαντινά Εκκλησιαστικά χρυσοκεντημάτα
+			  </div>
+			  <div class="text-md-right">
+				ΒΙΟΤΕΧΝΙΑ ΚΑΤΑΣΚΕΥΗΣ ΒΥΖΑΝΤΙΝΩΝ ΧΡΥΣΟΚΕΝΤΗΜΑΤΩΝ &amp; ΕΚΚΛΗΣΙΑΣΤΙΚΩΝ ΕΙΔΩΝ <a href="/" class="hover:text-gray-300">ΑΘΩ λτδ</a>
+			  </div>
+			</div>
+		  </footer>
+</svelte:fragment>
 </AppShell>
