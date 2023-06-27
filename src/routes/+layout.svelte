@@ -58,7 +58,8 @@ onMount(async () => {
 			</a>	
 		</svelte:fragment>
 		<svelte:fragment slot="trail">
-			<TabGroup>
+		
+		<TabGroup>
 				{#each navItems as item}
 				<TabAnchor href={item.href} selected={$page.url.pathname === item.href}>{item.label}</TabAnchor>
 				{/each}
@@ -108,7 +109,7 @@ onMount(async () => {
 	</div>	
 	</svelte:fragment>
 	<!-- Page Route Content -->
-	<div class="container my-4 grid place-items-center pt-6 text-center content-center overflow-auto scrollbar-hide">
+	<div class="container mx-auto my-4 grid place-items-center pt-6 text-center content-center overflow-auto scrollbar-hide">
 
 	<slot />
 </div>
