@@ -47,13 +47,21 @@
         } else if (event.key === 'ArrowLeft') {
             goToPreviousImage();
         }
+        else if (event.key === 'Escape'){
+            closeModal();
+        }
     }
 
     function prefetchImage(imgUrl) {
         const img = new Image();
         img.src = imgUrl;
     }
-
+    function handleMouseMove(event) {
+        const {left, top, width, height} = event.currentTarget.getBoundingClientRect();
+        const x = ((event.clientX - left) / width) * 100;
+        const y = ((event.clientY - top) / height) * 100;
+        event.currentTarget.style.backgroundPosition = `${x}% ${y}%`;
+    }
     function prefetchAdjacentImages() {
         if (currentIndex > 0) {
             prefetchImage(images[currentIndex - 1].src);
@@ -88,10 +96,12 @@
 
     .magnified-image {
         position: relative;
-        width: 85%;
-        height: 85%;
+        /* left:10%; */
+        width: 90%;
+        height: 90%;
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: 90%;
+        background-position: center;
     }
 
     .arrow {
@@ -99,7 +109,7 @@
         top: 50%;
         font-size: 5em;
         color: white;
-        cursor: pointer;
+        cursor: help;
         user-select: none;
     }
 
@@ -110,17 +120,30 @@
     .right-arrow {
         right: 10px;
     }
+    .close-button {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        font-size: 5em;
+        color: red;
+        cursor: zoom-out;
+    }
+    .close-button:hover{
+        scale: 150%;
+    }
 </style>
 
 {#if isModalOpen}
-    <div class={modalClass} on:mouseout={closeModal}>
+    <div class={modalClass}>
         <div 
             class="magnified-image"
             style="background-image: url({currentImage})"
+            on:mousemove={handleMouseMove}
         >
-            <span class="arrow left-arrow" on:click={goToPreviousImage}>&lt;</span>
-            <span class="arrow right-arrow" on:click={goToNextImage}>&gt;</span>
+            <span class="arrow left-arrow" on:click|preventDefault={goToPreviousImage}>&lt;</span>
+            <span class="arrow right-arrow" on:click|preventDefault={goToNextImage}>&gt;</span>
         </div>
+        <div class="close-button" on:click={closeModal}>&times;</div>
     </div>
 {/if}
 
