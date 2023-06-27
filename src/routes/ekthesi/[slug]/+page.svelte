@@ -139,6 +139,7 @@
             class="magnified-image"
             style="background-image: url({currentImage})"
             on:mousemove={handleMouseMove}
+            on:touchstart={handleMouseMove}
         >
             <span class="arrow left-arrow" on:click|preventDefault={goToPreviousImage}>&lt;</span>
             <span class="arrow right-arrow" on:click|preventDefault={goToNextImage}>&gt;</span>
