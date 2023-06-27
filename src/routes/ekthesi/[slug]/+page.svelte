@@ -109,7 +109,7 @@
         top: 50%;
         font-size: 5em;
         color: white;
-        cursor: help;
+        cursor: hand;
         user-select: none;
     }
 
@@ -143,12 +143,12 @@
             <span class="arrow left-arrow" on:click|preventDefault={goToPreviousImage}>&lt;</span>
             <span class="arrow right-arrow" on:click|preventDefault={goToNextImage}>&gt;</span>
         </div>
-        <div class="close-button" on:click={closeModal}>&times;</div>
+        <div class="close-button" on:click={closeModal} on:pointerover={closeModal}>&times;</div>
     </div>
 {/if}
 
 <a
-    class="btn btn-sm variant-filled my-2"
+    class="btn btn-lg variant-filled my-2"
     href="/ekthesi"
     rel="noreferrer"
 >
