@@ -1,18 +1,39 @@
 <script lang="ts">
   import {csvDataStore} from '../../csvdata'
   import { ProgressRadial } from '@skeletonlabs/skeleton';
-  
+  export let data;
+  const names=data.data;
+  console.log(names);
+  function resetScroll(){
+    window.scroll({
+  top: 0, 
+  left: 0, 
+  behavior: 'smooth'
+});
+  }
 </script>
 <style>
   .placeholder{
     width:450px;
     height: 300px;
   }
+  @keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.dots {
+    animation: blink 0.75s infinite;
+}
 </style>
 {#if $csvDataStore.length > 0}
 <div class="flex flex-wrap mx-auto overflow-hidden ">
 {#each $csvDataStore[0].data as data}
-<a href="/ekthesi/{data.url}">
+<a href="/ekthesi/{data.url}" on:click={resetScroll}>
 <div class="w-fit md:w-full p-30 m-3 rounded-lg transition duration-300 ease-in-out hover:scale-110"
 style="height:300px; width:450px; background-image: url({data.img}); ">
 
@@ -26,7 +47,10 @@ style="height:300px; width:450px; background-image: url({data.img}); ">
 {:else}
 <div class="grid grid-flow-row justify-center text-center">
 <!-- <ProgressRadial font={15} style="position:relative;right:50%;" class="bg-primary-hover-token w-10"  /> -->
-<h3 class="text-2xl mb-6">Φορτώνονται τα διαθέσιμα προϊόντα της έκθεσής μας...</h3>
+<h3 class="text-2xl mb-6">
+  Φορτώνονται τα διαθέσιμα προϊόντα της έκθεσής μας
+  <span class="dots animate-dots">...</span>
+</h3>
 </div>
 <section class="card w-full bg-surface">
 	<div class="">
@@ -46,6 +70,7 @@ style="height:300px; width:450px; background-image: url({data.img}); ">
 		</div>
 	</div>
 </section>
+
 {/if}
 
 
