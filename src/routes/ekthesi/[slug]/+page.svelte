@@ -153,7 +153,7 @@
     href="/ekthesi"
     rel="noreferrer"
 >
-    Επιστροφή
+    Επιστροφή στην Έκθεση
 </a>
 
 {#if images && images.length > 0}

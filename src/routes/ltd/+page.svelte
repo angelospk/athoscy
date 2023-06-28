@@ -1,4 +1,8 @@
-<div class="entry-content">
+<script lang="ts">
+    import Ekthesi from "../Ekthesi.svelte";
+  </script>
+<div class="flex flex-wrap overflow-hidden">
+<div class="entry-content w-full lg:w-1/2">
     <h1 style="text-align: center;"><span style="color: #993300;">Λίγα λόγια για την ιστορία</span></h1>
 <h2 style="text-align: justify;"><img loading="lazy" class="alignleft size-medium wp-image-161" src="https://cdn.discordapp.com/attachments/814528759478747187/1122510062573854840/1-1.jpg" alt="βυζαντινά κεντήματα" width="300" height="120"><span style="font-size: 20px;">Μετά το τέλος των διωγμών η αγιογραφική τέχνη μένει ελεύθερη και παίρνει μορφή και κατεύθυνση. O τέταρτος αιώνας μετά Χριστό&nbsp;οπότε επικρατεί ο χριστιανισμός (αρχή του Βυζαντίου) αποτελεί τον πρώτο σημαντικό σταθμό στη βυζαντινή τέχνη. </span></h2>
 <p style="text-align: justify;">H άγια Ελένη με την αποκάλυψή του τίμιου σταυρού φέρνει στο φως τα πρώτα έργα της πρωτοχριστιανικής περιόδου, τα θέματα της αγιογραφίας πλουτίζονται μέσα από τα ιερά βιβλία και η αγιογραφία γίνεται επίσημη τέχνη του βυζαντινού κράτους και ονομάζεται βυζαντινή τέχνη.</p>
@@ -12,3 +16,7 @@
 <strong>Ελένη</strong>&nbsp;<strong>Σεντουκάρη&nbsp;</strong><br>
 <em>Σχεδιάστρια – Προγραμματιστής</em></p>
                             </div>
+
+<div class="w-full md:w-1/2">
+<Ekthesi/>
+</div></div>
