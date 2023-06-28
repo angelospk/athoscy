@@ -18,7 +18,10 @@ style="height:300px; width:450px; background-image: url({data.img}); ">
 {/each}
 </div>
 {:else}
-<ProgressRadial font={15} class="bg-primary-hover-token w-10"  />
+<div class="grid grid-flow-row justify-center">
+<ProgressRadial font={15} style="" class="bg-primary-hover-token w-10"  />
+<h3 class="text-2xl">Φορτώνονται τα διαθέσιμα προϊόντα της έκθεσής μας...</h3>
+</div>
 {/if}
 
 
