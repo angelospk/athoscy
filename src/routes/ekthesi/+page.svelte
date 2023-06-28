@@ -1,10 +1,7 @@
 <script lang="ts">
-  // import { getContext } from 'svelte';
   import {csvDataStore} from '../../csvdata'
   import { ProgressRadial } from '@skeletonlabs/skeleton';
   
-// const t:any = getContext('csvData');
-// console.log(t);
 </script>
 {#if $csvDataStore.length > 0}
 <div class="flex flex-wrap mx-auto ">
