@@ -167,7 +167,7 @@
             on:click={() => handleClick(item.src, index)} 
             on:mouseenter={() => prefetchImage(item.src)}
             class="w-1/3 md:w-auto m-3 mx-auto rounded-2xl hover:cursor-zoom-in " 
-            src={item.src.replace("cdn","media").replace("com","net").replace("jpg","jpg?width=240&height=160")} 
+            src={item.src.replace("cdn","media").replace("com","net").replace("jpg","jpg?width=240&height=160").replace("JPG","JPG?width=240&height=160")} 
             alt={item.alt}
         />
     {/each}

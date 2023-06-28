@@ -105,7 +105,7 @@
 					Πλησίον της Ιερας Αρχιεπισκοπής Κύπρου
 				  </p>
 				  <!-- Map -->
-				  <div class="mt-4">
+				  <div class="mt-4 w-fit">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.370484414824!2d33.369026399999996!3d35.1723175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de19122da093a9%3A0x6854493d3dcdb313!2zzpouIM6VLiDOkc6YzqkgzpvOpM6U!5e0!3m2!1sen!2sus!4v1687908801860!5m2!1sen!2sus" frameborder="0" allowfullscreen="" class="w-auto h-48"></iframe>
 				  </div>
 				  <h3 class="mt-6 mb-4 text-lg">Ωράριο λειτουργίας έκθεσης</h3>
@@ -129,7 +129,7 @@
 					Μακεδονίτισσα – Λευκωσία
 				  </p>
 				  <!-- Map -->
-				  <div class="mt-4">
+				  <div class="mt-4 w-max-full">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5039481290805!2d33.3085714147659!3d35.144050580323054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de1a53dfc20c8b%3A0xa0def0ac5d0c2be9!2zzpouIM6VLiDOkc6YzqkgzpvOpM6U!5e0!3m2!1sen!2sus!4v1489606989265" frameborder="0" allowfullscreen="" class="w-auto h-48"></iframe>
 				  </div>
 				  <h3 class="mt-6 mb-4 text-lg">Ωράριο λειτουργίας - Βιοτεχνίας</h3>
