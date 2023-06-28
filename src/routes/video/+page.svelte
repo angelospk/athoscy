@@ -6,3 +6,4 @@
 	
 <div class="w-full md:w-1/2"><Ekthesi /></div>
 </div>
+
