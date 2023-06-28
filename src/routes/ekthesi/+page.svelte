@@ -3,6 +3,12 @@
   import { ProgressRadial } from '@skeletonlabs/skeleton';
   
 </script>
+<style>
+  .placeholder{
+    width:450px;
+    height: 300px;
+  }
+</style>
 {#if $csvDataStore.length > 0}
 <div class="flex flex-wrap mx-auto overflow-hidden ">
 {#each $csvDataStore[0].data as data}
@@ -18,10 +24,28 @@ style="height:300px; width:450px; background-image: url({data.img}); ">
 {/each}
 </div>
 {:else}
-<div class="grid grid-flow-row justify-center">
-<ProgressRadial font={15} style="" class="bg-primary-hover-token w-10"  />
-<h3 class="text-2xl">Φορτώνονται τα διαθέσιμα προϊόντα της έκθεσής μας...</h3>
+<div class="grid grid-flow-row justify-center text-center">
+<!-- <ProgressRadial font={15} style="position:relative;right:50%;" class="bg-primary-hover-token w-10"  /> -->
+<h3 class="text-2xl mb-6">Φορτώνονται τα διαθέσιμα προϊόντα της έκθεσής μας...</h3>
 </div>
+<section class="card w-full bg-surface">
+	<div class="">
+		<div class="flex flex-wrap mx-auto overflow-hidden">
+			<div class="placeholder animate-pulse p-30 m-3" />
+			<div class="placeholder animate-pulse p-30 m-3" />
+			<div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+      <div class="placeholder animate-pulse p-30 m-3" />
+		</div>
+	</div>
+</section>
 {/if}
 
 
