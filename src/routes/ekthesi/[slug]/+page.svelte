@@ -43,8 +43,12 @@
 
     function handleKeyDown(event) {
         if (event.key === 'ArrowRight') {
+            if (currentIndex < images.length - 2) {
+                prefetchImage(images[currentIndex + 2].src);}
             goToNextImage();
         } else if (event.key === 'ArrowLeft') {
+            if (currentIndex > 1) {
+                prefetchImage(images[currentIndex - 2].src)};
             goToPreviousImage();
         }
         else if (event.key === 'Escape'){
@@ -149,7 +153,7 @@
 {/if}
 
 <a
-    class="btn btn-lg variant-filled my-2"
+    class="btn btn-lg rounded-xl variant-filled my-2"
     href="/ekthesi"
     rel="noreferrer"
 >
@@ -162,7 +166,7 @@
         <img 
             on:click={() => handleClick(item.src, index)} 
             on:mouseenter={() => prefetchImage(item.src)}
-            class="m-3 mx-auto hover:cursor-zoom-in" 
+            class="w-1/3 md:w-auto m-3 mx-auto rounded-2xl hover:cursor-zoom-in " 
             src={item.src.replace("cdn","media").replace("com","net").replace("jpg","jpg?width=240&height=160")} 
             alt={item.alt}
         />
