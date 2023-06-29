@@ -30,11 +30,15 @@
 	let tabSet = tabPage;
 	onMount(async () => {
 		//   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?gid=113001344&single=true&output=csv';
-		const url =
-			'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?output=xlsx';
-		let data: any = await fetchXLSXdata(url);
-		csvDataStore.set(data);
-		console.log(data);
+		// const url =
+		// 	'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?output=xlsx';
+		// let data: any = await fetchXLSXdata(url);
+		let d=await fetch ("/api/data")
+		console.log(d);
+		if (d.ok){
+		let dat=await d.json()
+		csvDataStore.set(dat.d);
+		console.log(dat.d);}
 	});
 	function resetScroll(){
     window.scroll({

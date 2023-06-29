@@ -1,0 +1,40 @@
+
+import { fetchXLSXdata } from "../../../getdata";
+import type { RequestHandler } from './$types';
+let cachedData = null;
+let cacheTime = null;
+export const GET = (async () =>{
+  
+  if (cachedData && cacheTime && (new Date() - cacheTime) < 60000) {
+    return new Response(JSON.stringify({ success: true, d:cachedData}), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate'
+      }
+    })
+  }
+  const url ="https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?output=xlsx";
+	let data= await fetchXLSXdata(url);
+  // const response = await fetch("https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/pub?output=csv");
+  if (data) {
+    // res.(JSON.stringify(data))
+    
+    // Set caching headers
+    // This caches the data in CDN for 1 hour
+    cachedData = data;
+    cacheTime = new Date();
+    return new Response(JSON.stringify({ success: true, d:data}), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate'
+      }
+    })
+    // res.headers.set('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+
+    // // Return the data
+    // res.headers.set('Content-Type', 'application/json');
+    // res.end(JSON.stringify(data));
+  } else {
+    return new Response(JSON.stringify({ success:false }));
+  }
+}) satisfies RequestHandler;
