@@ -35,13 +35,21 @@
 		// const url =
 		// 	'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?output=xlsx';
 		// let data: any = await fetchXLSXdata(url);
-		if ($page.data.id?.includes("en")){
+		// console.log($page.data.id);
+		const path = window.location.pathname;
+		console.log(path);
+		if (path.includes("/en")){
 			lang.set("en")
-			// selected="English"
+			selected="English"
 		}
-		else if($page.data.id?.includes("ru")){
+		else if(path.includes("/ru")){
 			lang.set("ru")
-		} 
+			selected="Russian"
+		}
+		else{
+			lang.set("gr")
+			selected="Ελληνικά"
+		}
 		
 		let d=await fetch ("/api/data")
 		console.log(d);
@@ -49,6 +57,7 @@
 		let dat=await d.json()
 		csvDataStore.set(dat.d);
 		console.log(dat.d);}
+		console.log(selected, $lang);
 	});
 	function resetScroll(){
     window.scroll({
