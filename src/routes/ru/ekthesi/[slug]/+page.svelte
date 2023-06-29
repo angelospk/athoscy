@@ -156,10 +156,10 @@
 
 <a
     class="btn btn-lg rounded-xl variant-filled my-2"
-    href="/ekthesi"
+    href="/ru/ekthesi"
     rel="noreferrer"
 >
-    Επιστροφή στην Έκθεση
+Назад
 </a>
 
 {#if images && images.length > 0}
@@ -175,5 +175,5 @@
     {/each}
     </div>   
 {:else}
-    <p>Δε βρέθηκαν προϊόντα.</p>
+    <p>Продукты не найдены.</p>
 {/if}

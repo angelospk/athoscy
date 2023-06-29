@@ -19,20 +19,30 @@
 	import { onMount } from 'svelte';
 	import { Tab } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
+	import { get } from 'svelte/store';
 	import Papa from 'papaparse';
 	import { writable } from 'svelte/store';
 	let data = [];
 	let currentTile: number = 0;
-	import { csvDataStore, tabPage } from '../csvdata';
+	import { csvDataStore, tabPage, lang } from '../csvdata';
 	import { fetchXLSXdata } from '../getdata';
 	import { goto } from '$app/navigation';
 	import TabAnchor from '../TabAnchor.svelte';
 	let tabSet = tabPage;
+	let selected;
 	onMount(async () => {
 		//   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?gid=113001344&single=true&output=csv';
 		// const url =
 		// 	'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?output=xlsx';
 		// let data: any = await fetchXLSXdata(url);
+		if ($page.data.id?.includes("en")){
+			lang.set("en")
+			// selected="English"
+		}
+		else if($page.data.id?.includes("ru")){
+			lang.set("ru")
+		} 
+		
 		let d=await fetch ("/api/data")
 		console.log(d);
 		if (d.ok){
@@ -48,14 +58,90 @@
 });}
 	let valueSingle: string = 'gr';
 	// import { register, init, getLocaleFromNavigator } from 'svelte-i18n';
-
-	const navItems = [
+	// console.log(window.location.pathname);
+	console.log($page.route.id);
+	
+	const grnavItems = [
 		{ href: '/', label: 'Αρχική' },
-		{ href: '/ltd', label: 'λτδ' },
+		{ href: '/atho-ke-ltd', label: 'λτδ' },
 		{ href: '/ekthesi', label: 'Έκθεση' },
 		{ href: '/contact', label: 'Επικοινωνία' },
 		{ href: '/video', label: 'Βίντεο' }
 	];
+	
+	const ennavItems = [
+		{ href: '/en', label: 'Homepage' },
+		{ href: '/en/atho-ke-ltd', label: 'ATHO LTD' },
+		{ href: '/en/ekthesi', label: 'Exhibition' },
+		{ href: '/en/contact', label: 'Contact' },
+		{ href: '/en/video', label: 'Video' }
+	];
+	const runavItems = [
+		{ href: '/ru', label: 'ГЛАВНАЯ' },
+		{ href: '/ru/atho-ke-ltd', label: 'ATHO LTD' },
+		{ href: '/ru/ekthesi', label: 'ФОТОВИРИНА' },
+		{ href: '/ru/contact', label: 'КОНТАКТНАЯ СВЯЗЬ' },
+		{ href: '/ru/video', label: 'Видео' }
+	];
+	function assignNavs(){
+		switch(get(lang)){
+		case "en":
+			return ennavItems;
+		case "ru":
+			return runavItems;
+		default:
+			return grnavItems;
+	}
+	}
+	let navItems=assignNavs();
+
+	function navtogr(){
+		const url=$page.route.id;
+		if (url.includes('/en')){
+			goto(url.replace('/en',''))
+		}
+		else if(url.includes('/ru')){
+			goto(url.replace('/ru',''))
+		}
+	}
+	function navtoen(){
+		const url=$page.route.id;
+		if (url.includes('/ru')){
+			goto(url.replace('/ru','/en'))
+		}
+		else if(!url.includes('/en')){
+			goto(url.replace('/','/en/'))
+		}
+	}
+	function navtoru(){
+		const url=$page.route.id;
+		if (url.includes('/en')){
+			goto(url.replace('/en','/ru'))
+		}
+		else if(!url.includes('/ru')){
+			goto(url.replace('/','/ru/http://localhost:5173/en'))
+		}
+	}
+	$: if (selected=='Ελληνικά') {
+		 navItems=grnavItems;
+		lang.set("gr")
+		navtogr();
+	}
+	else if (selected=='English'){
+		navItems=ennavItems
+		lang.set("en")
+		navtoen();
+	}
+	else if (selected=='Russian'){
+		navItems=runavItems
+		lang.set("ru")
+		navtoru();
+	}
+	// $: if ($page.route.id?.includes("/en")){
+	// 	navItems=ennavItems;
+	// 	elif ($page.route.id?.includes("/ru")){
+	// 	navItems=ennavItems;
+	// }
 </script>
 
 <!-- App Shell -->
@@ -83,6 +169,11 @@
 				<TabAnchor href="/about" selected={$page.url.pathname === '/about'}>About</TabAnchor> -->
 					</TabGroup>
 					<LightSwitch class="hidden sm:block"/>
+					<select class="text-sm w-3 md:w-fit" bind:value={selected}  name="language" id="lang">
+						<option >Ελληνικά</option>
+						<option >English</option>
+						<option >Russian</option>
+					  </select>
 				</svelte:fragment>
 				<div class="sm:hidden ms-20">(icon)</div>
 			</AppBar>
@@ -114,7 +205,7 @@
 					Πλησίον της Ιερας Αρχιεπισκοπής Κύπρου
 				  </p>
 				  <!-- Map -->
-				  <div class="mt-4 w-fit">
+				  <div class="mt-4 w-fit lazyload">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.370484414824!2d33.369026399999996!3d35.1723175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de19122da093a9%3A0x6854493d3dcdb313!2zzpouIM6VLiDOkc6YzqkgzpvOpM6U!5e0!3m2!1sen!2sus!4v1687908801860!5m2!1sen!2sus" frameborder="0" allowfullscreen="" class="w-auto h-48"></iframe>
 				  </div>
 				  <h3 class="mt-6 mb-4 text-lg">Ωράριο λειτουργίας έκθεσης</h3>
@@ -138,7 +229,7 @@
 					Μακεδονίτισσα – Λευκωσία
 				  </p>
 				  <!-- Map -->
-				  <div class="mt-4 w-max-full">
+				  <div class="mt-4 w-max-full lazyload">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.5039481290805!2d33.3085714147659!3d35.144050580323054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de1a53dfc20c8b%3A0xa0def0ac5d0c2be9!2zzpouIM6VLiDOkc6YzqkgzpvOpM6U!5e0!3m2!1sen!2sus!4v1489606989265" frameborder="0" allowfullscreen="" class="w-auto h-48"></iframe>
 				  </div>
 				  <h3 class="mt-6 mb-4 text-lg">Ωράριο λειτουργίας - Βιοτεχνίας</h3>
@@ -151,7 +242,7 @@
 				<!-- Column 3 -->
 				<div class="w-full lg:w-1/4 mb-6 lg:mb-0">
 				  <h3 class="mb-4 text-lg">FACEBOOK</h3>
-				  <div class="w-full h-60 overflow-hidden">
+				  <div class="w-full h-60 overflow-hidden lazyload">
 					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fathocy%2F&amp;tabs=timeline&amp;..." frameborder="0"></iframe>
 				  </div>
 				</div>
