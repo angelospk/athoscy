@@ -14,7 +14,7 @@
 {#if $csvDataStore.length > 0}
 {#each $csvDataStore[0].data as data}
 <div class="m-1 hover:scale-125">
-<a href="/ekthesi/{data.url}" on:click={resetScroll}>
+<a href="/ekthesi/{data.url}#button" on:click={resetScroll}>
 <button type="button" class="btn variant-filled my-2 text-xl rounded-2xl">{data.gr}</button>
 </a></div>
 <!-- <p>{data.url}</p> -->

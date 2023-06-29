@@ -40,6 +40,7 @@
 		csvDataStore.set(dat.d);
 		console.log(dat.d);}
 	});
+	
 	function resetScroll(){
     window.scroll({
   top: 0, 
@@ -75,7 +76,7 @@
 				<svelte:fragment slot="trail">
 					<TabGroup class="w-0 sm:w-auto">
 						{#each navItems as item}
-							<TabAnchor href={item.href} selected={$page.url.pathname === item.href} on:click={resetScroll}
+							<TabAnchor href={item.href} selected={(($page.url.pathname==="/" && item.href==="/") || ($page.url.pathname.includes(item.href) && item.href.length>2))} on:click={resetScroll}
 								>{item.label}</TabAnchor
 							>
 						{/each}

@@ -153,6 +153,7 @@
 {/if}
 
 <a
+    id="button"    
     class="btn btn-lg rounded-xl variant-filled my-2"
     href="/ekthesi"
     rel="noreferrer"

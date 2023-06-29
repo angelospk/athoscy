@@ -33,10 +33,11 @@
     animation: blink 0.75s infinite;
 }
 </style>
+<!-- <title>Έκθεση Προϊόντων</title> -->
 {#if $csvDataStore.length > 0}
 <div class="flex flex-wrap mx-auto overflow-hidden ">
 {#each $csvDataStore[0].data as data}
-<a href="/ekthesi/{data.url}" on:click={resetScroll}>
+<a href="/ekthesi/{data.url}#button" on:click={resetScroll}>
 <div class="image p-30 m-3 rounded-lg transition duration-300 ease-in-out hover:scale-110"
 style="height:270px; background-image: url({data.imgavif}); background-position: center; background-size:70% background-repeat:no-repeat; ">
 <!--  width:450px; -->
@@ -52,6 +53,7 @@ style="height:270px; background-image: url({data.imgavif}); background-position:
 <!-- <ProgressRadial font={15} style="position:relative;right:50%;" class="bg-primary-hover-token w-10"  /> -->
 
 </div>
+
 <section class="card ">
 	<h3 class="text-2xl mb-6">
     Φορτώνονται τα διαθέσιμα προϊόντα της έκθεσής μας
@@ -59,18 +61,18 @@ style="height:270px; background-image: url({data.imgavif}); background-position:
   </h3>
   <div class="">
 		<div class="flex flex-wrap mx-auto overflow-hidden">
-			<div class="placeholder animate-pulse p-30 m-3" />
-			<div class="placeholder animate-pulse p-30 m-3" />
-			<div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
-      <div class="placeholder animate-pulse p-30 m-3" />
+			<div class="placeholder animate-pulse p-30 m-3" >Ιεροί Ναοί</div>
+			<div class="placeholder animate-pulse p-30 m-3" >Άμφια</div>
+			<div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
+      <div class="placeholder animate-pulse p-30 m-3" ></div>
 		</div>
 	</div>
 </section>
