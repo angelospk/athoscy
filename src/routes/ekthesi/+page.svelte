@@ -61,18 +61,18 @@ style="height:270px; background-image: url({data.imgavif}); background-position:
   </h3>
   <div class="">
 		<div class="flex flex-wrap mx-auto overflow-hidden">
-			<div class="placeholder animate-pulse p-30 m-3" >Ιεροί Ναοί</div>
-			<div class="placeholder animate-pulse p-30 m-3" >Άμφια</div>
-			<div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
-      <div class="placeholder animate-pulse p-30 m-3" ></div>
+			<div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Ιεροί Ναοί</p></div>
+			<div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Αρχιερατικά Άμφια</p></div>
+			<div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Ιερατικά Άμφια</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Διακονικά Άμφια</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Βιβλία - Καλύμματα</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Επιτάφιοι</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Επιτραχήλια</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Επιγονάτια</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Εφαρμογές</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Λειτουργικά Είδη</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Κορδέλες - Σελιδοδείκτες</p></div>
+      <div class="placeholder animate-pulse p-30 m-3" ><p class="text-lg">Λάβαρα Εξαπτέρυγα</p></div>
 		</div>
 	</div>
 </section>
