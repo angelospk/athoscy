@@ -26,7 +26,7 @@ export const GET = (async () =>{
     return new Response(JSON.stringify({ success: true, d:data}), {
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 's-maxage=3600, stale-while-revalidate'
+        'Cache-Control': 'public, s-maxage=3600'
       }
     })
     // res.headers.set('Cache-Control', 's-maxage=3600, stale-while-revalidate');
