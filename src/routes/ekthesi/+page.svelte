@@ -38,7 +38,7 @@
 {#each $csvDataStore[0].data as data}
 <a href="/ekthesi/{data.url}" on:click={resetScroll}>
 <div class="image p-30 m-3 rounded-lg transition duration-300 ease-in-out hover:scale-110"
-style="height:270px; background-image: url({data.img}); background-position: center; background-size:70% background-repeat:no-repeat; ">
+style="height:270px; background-image: url({data.imgavif}); background-position: center; background-size:70% background-repeat:no-repeat; ">
 <!--  width:450px; -->
 <!-- <img src={data.img} alt={data.gr} class="rounded-full">   -->
 <!-- <button type="button" style="position:relative; top:80%;" class="btn variant-filled my-2 text-xl rounded-2xl">{data.gr}</button> -->
