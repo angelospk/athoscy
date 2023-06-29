@@ -36,7 +36,12 @@
 		csvDataStore.set(data);
 		console.log(data);
 	});
-
+	function resetScroll(){
+    window.scroll({
+  top: 0, 
+  left: 0, 
+  behavior: 'smooth'
+});}
 	let valueSingle: string = 'gr';
 	// import { register, init, getLocaleFromNavigator } from 'svelte-i18n';
 
@@ -66,7 +71,7 @@
 				<svelte:fragment slot="trail">
 					<TabGroup class="w-0 sm:w-auto">
 						{#each navItems as item}
-							<TabAnchor href={item.href} selected={$page.url.pathname === item.href}
+							<TabAnchor href={item.href} selected={$page.url.pathname === item.href} on:click={resetScroll}
 								>{item.label}</TabAnchor
 							>
 						{/each}

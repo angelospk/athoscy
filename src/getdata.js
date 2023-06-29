@@ -33,12 +33,4 @@ export async function fetchXLSXdata(url) {
     }
 }
 
-    // try {
-    //     const response = await fetch(url);
-    //     const text = await response.text();
-    //     const parsedData = Papa.parse(text, { header: true }).data;
-    //     return parsedData;
-    // } catch (error) {
-    //     console.error('Error fetching and parsing CSV:', error);
-    //     return [];
-    // }
+   
