@@ -155,12 +155,11 @@
 {/if}
 
 <a
-    id="button"    
     class="btn btn-lg rounded-xl variant-filled my-2"
-    href="/ekthesi"
+    href="/en/ekthesi"
     rel="noreferrer"
 >
-    Επιστροφή στην Έκθεση
+    Back
 </a>
 
 {#if images && images.length > 0}
@@ -176,5 +175,5 @@
     {/each}
     </div>   
 {:else}
-    <p>Δε βρέθηκαν προϊόντα.</p>
+    <p>No products found.</p>
 {/if}

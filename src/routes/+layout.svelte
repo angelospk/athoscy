@@ -19,26 +19,45 @@
 	import { onMount } from 'svelte';
 	import { Tab } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
+	import { get } from 'svelte/store';
 	import Papa from 'papaparse';
 	import { writable } from 'svelte/store';
 	let data = [];
 	let currentTile: number = 0;
-	import { csvDataStore, tabPage } from '../csvdata';
+	import { csvDataStore, tabPage, lang } from '../csvdata';
 	import { fetchXLSXdata } from '../getdata';
 	import { goto } from '$app/navigation';
 	import TabAnchor from '../TabAnchor.svelte';
 	let tabSet = tabPage;
+	let selected;
 	onMount(async () => {
 		//   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?gid=113001344&single=true&output=csv';
 		// const url =
 		// 	'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmh5F6SfUqZdK4wPc8gG36n12Tz1Bg69xSLcG9eZpyke16FoniwDk3ztGGJJNE38RSuaJQ-icX_1AP/pub?output=xlsx';
 		// let data: any = await fetchXLSXdata(url);
+		// console.log($page.data.id);
+		const path = window.location.pathname;
+		console.log(path);
+		if (path.includes("/en")){
+			lang.set("en")
+			selected="English"
+		}
+		else if(path.includes("/ru")){
+			lang.set("ru")
+			selected="Russian"
+		}
+		else{
+			lang.set("gr")
+			selected="Ελληνικά"
+		}
+		
 		let d=await fetch ("/api/data")
 		console.log(d);
 		if (d.ok){
 		let dat=await d.json()
 		csvDataStore.set(dat.d);
 		console.log(dat.d);}
+		console.log(selected, $lang);
 	});
 	
 	function resetScroll(){
@@ -49,14 +68,90 @@
 });}
 	let valueSingle: string = 'gr';
 	// import { register, init, getLocaleFromNavigator } from 'svelte-i18n';
-
-	const navItems = [
+	// console.log(window.location.pathname);
+	console.log($page.route.id);
+	
+	const grnavItems = [
 		{ href: '/', label: 'Αρχική' },
-		{ href: '/ltd', label: 'λτδ' },
+		{ href: '/atho-ke-ltd', label: 'λτδ' },
 		{ href: '/ekthesi', label: 'Έκθεση' },
 		{ href: '/contact', label: 'Επικοινωνία' },
 		{ href: '/video', label: 'Βίντεο' }
 	];
+	
+	const ennavItems = [
+		{ href: '/en', label: 'Homepage' },
+		{ href: '/en/atho-ke-ltd', label: 'ATHO LTD' },
+		{ href: '/en/ekthesi', label: 'Exhibition' },
+		{ href: '/en/contact', label: 'Contact' },
+		{ href: '/en/video', label: 'Video' }
+	];
+	const runavItems = [
+		{ href: '/ru', label: 'ГЛАВНАЯ' },
+		{ href: '/ru/atho-ke-ltd', label: 'ATHO LTD' },
+		{ href: '/ru/ekthesi', label: 'ФОТОВИРИНА' },
+		{ href: '/ru/contact', label: 'КОНТАКТНАЯ СВЯЗЬ' },
+		{ href: '/ru/video', label: 'Видео' }
+	];
+	function assignNavs(){
+		switch(get(lang)){
+		case "en":
+			return ennavItems;
+		case "ru":
+			return runavItems;
+		default:
+			return grnavItems;
+	}
+	}
+	let navItems=assignNavs();
+
+	function navtogr(){
+		const url=$page.route.id;
+		if (url.includes('/en')){
+			goto(url.replace('/en',''))
+		}
+		else if(url.includes('/ru')){
+			goto(url.replace('/ru',''))
+		}
+	}
+	function navtoen(){
+		const url=$page.route.id;
+		if (url.includes('/ru')){
+			goto(url.replace('/ru','/en'))
+		}
+		else if(!url.includes('/en')){
+			goto(url.replace('/','/en/'))
+		}
+	}
+	function navtoru(){
+		const url=$page.route.id;
+		if (url.includes('/en')){
+			goto(url.replace('/en','/ru'))
+		}
+		else if(!url.includes('/ru')){
+			goto(url.replace('/','/ru/http://localhost:5173/en'))
+		}
+	}
+	$: if (selected=='Ελληνικά') {
+		 navItems=grnavItems;
+		lang.set("gr")
+		navtogr();
+	}
+	else if (selected=='English'){
+		navItems=ennavItems
+		lang.set("en")
+		navtoen();
+	}
+	else if (selected=='Russian'){
+		navItems=runavItems
+		lang.set("ru")
+		navtoru();
+	}
+	// $: if ($page.route.id?.includes("/en")){
+	// 	navItems=ennavItems;
+	// 	elif ($page.route.id?.includes("/ru")){
+	// 	navItems=ennavItems;
+	// }
 </script>
 
 <!-- App Shell -->
@@ -84,6 +179,11 @@
 				<TabAnchor href="/about" selected={$page.url.pathname === '/about'}>About</TabAnchor> -->
 					</TabGroup>
 					<LightSwitch class="hidden sm:block"/>
+					<select class="text-sm w-3 md:w-fit" bind:value={selected}  name="language" id="lang">
+						<option >Ελληνικά</option>
+						<option >English</option>
+						<option >Russian</option>
+					  </select>
 				</svelte:fragment>
 				<div class="sm:hidden ms-20">(icon)</div>
 			</AppBar>
