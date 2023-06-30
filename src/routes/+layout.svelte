@@ -129,7 +129,7 @@
 			goto(url.replace('/en','/ru'))
 		}
 		else if(!url.includes('/ru')){
-			goto(url.replace('/','/ru/http://localhost:5173/en'))
+			goto(url.replace('/','/ru/'))
 		}
 	}
 	$: if (selected=='Ελληνικά') {
@@ -171,7 +171,7 @@
 				<svelte:fragment slot="trail">
 					<TabGroup class="w-0 sm:w-auto">
 						{#each navItems as item}
-							<TabAnchor href={item.href} selected={(($page.url.pathname==="/" && item.href==="/") || ($page.url.pathname.includes(item.href) && item.href.length>2))} on:click={resetScroll}
+							<TabAnchor href={item.href} selected={(($page.url.pathname.length<=3 && item.href.length<=3) || ($page.url.pathname.includes(item.href) && item.href.length>3))} on:click={resetScroll}
 								>{item.label}</TabAnchor
 							>
 						{/each}

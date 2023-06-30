@@ -23,7 +23,7 @@ export async function load({ params }) {
 			d = a[0].data; // Assuming that a[0] has the property data
 		}
 	}
-    return {data:d}};
+    return {data:d, category:params.slug}};
 //     console.log(t);
 
 //     const names = t.filter(x => x.sheetName === "names");

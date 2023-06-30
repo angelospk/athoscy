@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount, onDestroy } from 'svelte';
-    
+    import {selected} from '../../../csvdata'
     export let data;
     
     let isModalOpen = false;
@@ -11,7 +11,7 @@
     
 
     let modalClass = "modal";
-    
+    let category=data.category;
     
 
     function handleClick(imgUrl, index) {
@@ -76,7 +76,19 @@
             prefetchImage(images[currentIndex + 1].src);
         }
     }
- 
+    const toggleSelect = (image) => {
+    let currentSelected;
+    selected.update(value => {
+      currentSelected = value;
+      return value;
+    });
+    if (currentSelected.some(item => item.image === image)) {
+      selected.set(currentSelected.filter(item => item.image !== image));
+    } else {
+      selected.update(value => [...value, {image, category}]);
+    }
+    console.log($selected);
+  };
     onMount(() => {
         window.addEventListener('keydown', handleKeyDown);
     });
@@ -147,6 +159,10 @@
             on:mousemove={handleMouseMove}
             on:touchstart={handleMouseMove}
         >
+        <button class="btn variant-filled" on:click={() => toggleSelect(currentImage)}>
+            {#if $selected.some(item => item.image === currentImage)} Unselect {/if}
+            {#if !$selected.some(item => item.image === currentImage)} Select {/if}
+          </button>
             <span class="arrow left-arrow" on:click|preventDefault={goToPreviousImage}>&lt;</span>
             <span class="arrow right-arrow" on:click|preventDefault={goToNextImage}>&gt;</span>
         </div>
@@ -160,9 +176,16 @@
     href="/ekthesi"
     rel="noreferrer"
 >
-    Επιστροφή στην Έκθεση
+    Έκθεση
 </a>
-
+<a
+    id="button"    
+    class="btn btn-lg rounded-xl variant-filled my-2 m-5"
+    href="/contact"
+    rel={"/ekthesi/"+category}
+>
+    Ερώτηση για προϊόντα
+</a>
 {#if images && images.length > 0}
     <div class="flex flex-wrap overflow-hidden">
     {#each images as item, index}

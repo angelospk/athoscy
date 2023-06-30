@@ -10,7 +10,7 @@
   }
   </script>
 <div class="text-center justify-center place-content-center grid grid-flow-row">
-<h3 class="text-3xl mb-10 my-4"> Έκθεση</h3>
+<h3 class="text-3xl mb-10 my-4"> ФОТОВИРИНА</h3>
 {#if $csvDataStore.length > 0}
 {#each $csvDataStore[0].data as data}
 <div class="m-1 hover:scale-125">

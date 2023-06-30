@@ -8,27 +8,27 @@
  <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
   <div class="flex-1 bg-surface p-4 shadow-md">
     <h3 class="text-xl font-bold mb-2 text-primary-600">
-     K.E. ΑΘΩ λτδ
+     K.E ATHO Ltd
     </h3>
     <p>
-      &nbsp;K.E. ΆΘΩ λτδ δραστηριοποιείται στον χώρο των βυζαντινών εκκλησιαστικών χρυσοκεντημάτων από το 2003 στην πόλη της Λευκωσίας – Κύπρος. Με την υψηλή τεχνογνωσία που κατέχει και τον κατάλληλο τεχνολογικό εξοπλισμό δημιουργεί, υλοποιεί και διαθέτει προϊόντα κειμηλιακής άξιας, που προορίζονται για την ένδυση όλων των βαθμίδων του ιερού θυσιαστηρίου (διακόνων, πρεσβυτέρων, αρχιερέων) άλλα και του ιερού ναού. Απευθυνόμαστε στους απανταχού ορθοδόξους προσπαθώντας να διευρύνουμε τις συνεργασίες μας ενημερώνοντας τους. Στηρίζουμε την επιτυχία μας στην ποιότητα, στην συνέπεια, στην εξέλιξη, στις προσιτές τιμές άλλα και στην συνεχή σχέση και επαφή με τους πελάτες μας, οι οποίοι είναι και αυτοί που μας προβάλλουν. Σας ευχαριστούμε για την αγάπη και την εμπιστοσύνη σας.
+      Κ.Ε. ΑTHO ltd. is active in the area of Byzantine church golden embroideries since 2003 in the city of Nicosia – Cyprus. With our high level of know-how and the appropriate technological equipment we create, materialize and trade relic-worth products, aimed for the clothing of all ranks of the holy altar (deacons, presbyters, high priests) but also of the holy temple. We aim at Orthodox Christians all around the world attempting to broaden our cooperations by keeping them updated. Our success is based on quality, punctuality, evolution, reasonable prices but also on our continuous communication and contact with our customers, who are the ones that promote us. We thank you for you love and trust.
     </p>
   </div>
   <div class="flex-1 bg-surface p-4 shadow-md">
     <h3 class="text-xl font-bold mb-2 text-primary-600">
-      Καλωσήρθατε στην ιστοσελίδα μας
+      Welcome to our website
     </h3>
     <p>
-      Σας ενημερώνουμε πως σ΄ αυτήν θα βρείτε μερικά μόνον από τα προϊόντα που έχουμε δημιουργήσει τα τελευταία χρόνια. Στην έκθεση μας μπορείτε να βρείτε Αρχιερατικά Άμφια, Ιερατικά Άμφια, Επιγονάτια, Επιτραχήλια, Διακονικά Άμφια, Ιεροί Ναοί, Εφαρμογές, Λειτουργικά Είδη, Κορδέλες, Μοναχικά Είδη και Λάβαρα Εξαπτέρυγα. Υπόσχεση μας είναι η συνεχής ενημέρωσή σας με νέα σχέδια και εφαρμογές. Μην διστάσετε να επικοινωνήσετε μαζί μας για οτιδήποτε. Ευχαριστούμε εκ των προτέρων για τον χρόνο σας.&nbsp;
+      We would like to inform you that here you will find only a few of the products that we have created in recent years. In our exhibition you can find High priest Vestments, Priest Vestments, Knee covers, Epitrachelia, Deacon Vestments, Holy Temples, Applications, Liturgical items, Ribbons, Monk items and Cherubim Banners. We promise to keep you continuously updated with new designs and applications. Do not hesitate to contact us about any matter. We thank you in advance for your time.
     </p>
   </div>
 </div>
 
 <div class="px-4 py-2 mt-4 bg-surface shadow-md">
   <p class="text-center italic">
-    <em>Mε υιικό σεβασμό και εκτίμηση για την Κ.Ε.Άθω λτδ</em><br />
-    <em>O γενικός διευθυντής</em><br />
-    <em><b>Κωνσταντίνος Παπαδόπουλος</b></em>
+    <em>With filial respect and esteem for Κ.Ε. ΑTHO ltd</em><br />
+    <em>General Director</em><br />
+    <em><b>General Director</b></em>
   </p>
 </div>
 
