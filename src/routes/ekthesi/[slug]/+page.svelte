@@ -163,8 +163,12 @@
             {#if $selected.some(item => item.image === currentImage)} Unselect {/if}
             {#if !$selected.some(item => item.image === currentImage)} Select {/if}
           </button>
-            <span class="arrow left-arrow" on:click|preventDefault={goToPreviousImage}>&lt;</span>
-            <span class="arrow right-arrow" on:click|preventDefault={goToNextImage}>&gt;</span>
+        {#if currentIndex>0}    
+        <span class="arrow left-arrow" on:click|preventDefault={goToPreviousImage}>&lt;</span>
+        {/if}
+        {#if currentIndex<images.length-1}    
+        <span class="arrow right-arrow" on:click|preventDefault={goToNextImage}>&gt;</span>
+        {/if}
         </div>
         <div class="close-button" on:click={closeModal} on:pointerover={closeModal}>&times;</div>
     </div>
