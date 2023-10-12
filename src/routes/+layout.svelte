@@ -179,7 +179,7 @@
 				<TabAnchor href="/about" selected={$page.url.pathname === '/about'}>About</TabAnchor> -->
 					</TabGroup>
 					<LightSwitch class="hidden sm:block"/>
-					<select class="text-sm w-3 md:w-fit" bind:value={selected}  name="language" id="lang">
+					<select class="text-sm w-3 md:w-fit dark:text-slate-700" bind:value={selected}  name="language" id="lang">
 						<option >Ελληνικά</option>
 						<option >English</option>
 						<option >Russian</option>
