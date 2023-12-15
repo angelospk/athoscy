@@ -106,7 +106,7 @@
         width: 90%;
         height: 90%;
         background-repeat: no-repeat;
-        background-size: 90%;
+        background-size: contain;
         background-position: center;
     }
 
@@ -144,8 +144,7 @@
         <div 
             class="magnified-image"
             style="background-image: url({currentImage})"
-            on:mousemove={handleMouseMove}
-            on:touchstart={handleMouseMove}
+ 
         >
             <span class="arrow left-arrow" on:click|preventDefault={goToPreviousImage}>&lt;</span>
             <span class="arrow right-arrow" on:click|preventDefault={goToNextImage}>&gt;</span>

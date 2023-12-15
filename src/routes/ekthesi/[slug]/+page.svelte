@@ -118,7 +118,8 @@
         width: 90%;
         height: 90%;
         background-repeat: no-repeat;
-        background-size: 90%;
+        background-size:contain;
+        /* background-size: 100%; */
         background-position: center;
     }
 
@@ -156,8 +157,7 @@
         <div 
             class="magnified-image"
             style="background-image: url({currentImage})"
-            on:mousemove={handleMouseMove}
-            on:touchstart={handleMouseMove}
+
         >
         <button class="btn variant-filled" on:click={() => toggleSelect(currentImage)}>
             {#if $selected.some(item => item.image === currentImage)} Unselect {/if}
